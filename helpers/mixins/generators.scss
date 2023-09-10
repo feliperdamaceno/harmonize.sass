@@ -35,8 +35,8 @@
   }
 }
 
-@mixin generateCustomProperties($query, $prefix) {
-  $values: getTokenValues($query);
+@mixin generateCustomProperties($prefix, $token) {
+  $values: getTokenValues($token);
 
   @if ($values) {
     @each $key, $value in $values {
