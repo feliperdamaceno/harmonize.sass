@@ -1,0 +1,22 @@
+// Tokens
+@use '../../tokens.config' as *;
+
+// Getters
+@use './getters' as *;
+
+@function useValue($token, $query) {
+  $values: getTokenValues($token);
+
+  @if not($values) {
+    @return null;
+  }
+
+  $value: map-get($values, $query);
+
+  @if not($value) {
+    @warn #{'The value #{$query} has not been found on token #{$token}!'};
+    @return null;
+  }
+
+  @return $value;
+}

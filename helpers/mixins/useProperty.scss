@@ -1,0 +1,11 @@
+// Helpers
+@use '../functions' as *;
+
+@mixin useProperty($token, $query) {
+  $property: getTokenProperty($token);
+  $value: useValue($token, $query);
+
+  @if ($property and $value) {
+    #{$property}: $value;
+  }
+}

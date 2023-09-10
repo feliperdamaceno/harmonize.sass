@@ -1,0 +1,69 @@
+// Tokens
+@use '../../tokens.config' as *;
+
+/*
+  This group of functions have the purpose to act as a helper to retrieve data 
+  from the global tokens.
+*/
+
+@function getToken($query) {
+  $token: map-get($global-tokens, $query);
+
+  @if not($token) {
+    @warn #{'The token #{$query} has not been found on $global-tokens!'};
+    @return null;
+  }
+
+  @return $token;
+}
+
+@function getTokenProperty($query) {
+  $token: getToken($query);
+
+  @if not($token) {
+    @return null;
+  }
+
+  $property: map-get($token, 'property');
+
+  @if not($property) {
+    @warn #{'The token #{$query} does not have any property!'};
+    @return null;
+  }
+
+  @return $property;
+}
+
+@function getTokenValues($query) {
+  $token: getToken($query);
+
+  @if not($token) {
+    @return null;
+  }
+
+  $values: map-get($token, 'value');
+
+  @if not($values) {
+    @warn #{'The token #{$query} does not have any value!'};
+    @return null;
+  }
+
+  @return $values;
+}
+
+@function getTokenPrefixes($query) {
+  $token: getToken($query);
+
+  @if not($token) {
+    @return null;
+  }
+
+  $prefix: map-get($token, 'prefix');
+
+  @if not($prefix) {
+    @warn #{'The token #{$query} does not have any prefix!'};
+    @return null;
+  }
+
+  @return $prefix;
+}

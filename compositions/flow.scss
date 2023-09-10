@@ -1,0 +1,13 @@
+// Helpers
+@use '../helpers' as *;
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flow > * + *,
+.flow[data-recursive] * + * {
+  margin-top: #{useValue('line-height', 'regular')}em;
+}

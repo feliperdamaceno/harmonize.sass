@@ -1,0 +1,12 @@
+// Helpers
+@use '../functions' as *;
+
+@mixin useMediaQuery($breakpoint) {
+  $value: useValue('breakpoints', $breakpoint);
+
+  @if ($value) {
+    @media only screen and (min-width: $value) {
+      @content;
+    }
+  }
+}

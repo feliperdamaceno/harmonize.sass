@@ -1,0 +1,12 @@
+.center {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Center element based on it's content-based width.
+.center[data-intrinsic] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,11 @@
+// Helpers
+@use '../helpers' as *;
+
+// Generate border style utilities:
+@include generateUtilities('border-style');
+
+// Generate border width utilities:
+@include generateUtilities('border-width');
+
+// Generate border radius utilities:
+@include generateUtilities('border-radius');

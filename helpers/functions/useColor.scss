@@ -1,0 +1,20 @@
+// Tokens
+@use '../../tokens.config' as *;
+
+@function useColor($query, $shade) {
+  $colors: map-get($base-colors, $query);
+
+  @if not($colors) {
+    @warn #{'The color #{$query} has not been found on $base-colors!'};
+    @return null;
+  }
+
+  $color: map-get($colors, $shade);
+
+  @if not($color) {
+    @warn #{'The shade #{$shade} has not been found on color #{$query}!'};
+    @return null;
+  }
+
+  @return $color;
+}

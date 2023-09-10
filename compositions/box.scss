@@ -1,0 +1,13 @@
+// Helpers
+@use '../helpers' as *;
+
+.box {
+  --thickness: #{useValue('border-width', 100)};
+
+  border-width: var(--thickness);
+  padding: useValue('padding', 400);
+
+  // Apply transparent outline for high contrast mode.
+  outline: var(--thickness) solid transparent;
+  outline-offset: calc(var(--thickness) * -1);
+}

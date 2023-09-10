@@ -1,0 +1,302 @@
+/*
+  BASE SIZE:
+  All calculations are based on this value. The default is 1.6rem because on 
+  the root 1rem is set to be equal to 10px, so that, 1.6rem is equivalent to 
+  the default 16px.
+*/
+$base-size: 1.6rem !default;
+
+/*
+  DEFAULT SCALES:
+  These are the default scales that could be used to empower all the sizing in 
+  the library. It could be extended as required.
+*/
+$default-scales: (
+  linear: (
+    100: 0.2rem,
+    200: 0.4rem,
+    300: 0.8rem,
+    400: 1.6rem,
+    500: 3.2rem,
+    600: 6.4rem,
+    700: 12.8rem,
+    800: 2.56rem,
+    900: 5.12rem
+  ),
+  minor: (
+    100: $base-size * 0.579,
+    200: $base-size * 0.694,
+    300: $base-size * 0.833,
+    400: $base-size,
+    500: $base-size * 1.2,
+    600: $base-size * 1.44,
+    700: $base-size * 1.728,
+    800: $base-size * 2.074,
+    900: $base-size * 2.488
+  ),
+  major: (
+    100: $base-size * 0.512,
+    200: $base-size * 0.64,
+    300: $base-size * 0.8,
+    400: $base-size,
+    500: $base-size * 1.25,
+    600: $base-size * 1.563,
+    700: $base-size * 1.953,
+    800: $base-size * 2.441,
+    900: $base-size * 3.052
+  )
+) !default;
+
+/*
+  BASE SCALE:
+  These settings empower all the utilities related to (font-size, margin,  
+  padding, etc). Configure based on the scale options above.
+*/
+$base-scale: map-get($default-scales, 'major') !default;
+
+/*
+  GLOBAL COLORS:
+  Colors that are going to be used throughout utilities like backgrounds, 
+  texts, borders, etc. It can be extended as required.
+*/
+$base-colors: (
+  primary: (
+    100: hsl(204, 94%, 94%),
+    200: hsl(201, 94%, 86%),
+    300: hsl(199, 95%, 74%),
+    400: hsl(198, 93%, 60%),
+    500: hsl(200, 98%, 39%),
+    900: hsl(202, 80%, 24%)
+  ),
+  secondary: (
+    100: hsl(149, 80%, 90%),
+    200: hsl(152, 76%, 80%),
+    300: hsl(156, 72%, 67%),
+    400: hsl(158, 64%, 52%),
+    500: hsl(160, 84%, 39%),
+    900: hsl(164, 86%, 16%)
+  ),
+  neutral: (
+    100: hsl(240, 5%, 96%),
+    200: hsl(240, 6%, 90%),
+    300: hsl(240, 5%, 84%),
+    400: hsl(240, 5%, 65%),
+    900: hsl(240, 6%, 10%)
+  )
+) !default;
+
+/*
+  GLOBAL TOKENS:
+  These settings control all the custom properties and utilities that could be 
+  generated.
+*/
+$global-tokens: (
+  font-family: (
+    value: (
+      regular: (
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif
+      )
+    ),
+    prefix: (
+      font: 'font-family'
+    ),
+    property: 'font-family'
+  ),
+  font-size: (
+    value: $base-scale,
+    prefix: (
+      text: 'font-size'
+    ),
+    property: 'font-size'
+  ),
+  font-weight: (
+    value: (
+      light: 300,
+      regular: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700
+    ),
+    prefix: (
+      font: 'font-weight'
+    ),
+    property: 'font-weight'
+  ),
+  letter-spacing: (
+    value: (
+      narrower: -0.05em,
+      narrow: -0.025em,
+      regular: 0em,
+      wide: 0.025em,
+      wider: 0.05em
+    ),
+    prefix: (
+      font: 'letter-spacing'
+    ),
+    property: 'letter-spacing'
+  ),
+  line-height: (
+    value: (
+      heading: 1.1,
+      regular: 1.5
+    ),
+    prefix: (
+      leading: 'line-height'
+    ),
+    property: 'line-height'
+  ),
+  text-align: (
+    value: (
+      start: left,
+      center: center,
+      end: right
+    ),
+    prefix: (
+      text: 'text-align'
+    ),
+    property: 'text-align'
+  ),
+  text-transform: (
+    value: (
+      uppercase: uppercase,
+      lowercase: lowercase,
+      capitalize: capitalize
+    ),
+    prefix: (
+      text: 'text-transform'
+    ),
+    property: 'text-transform'
+  ),
+  measure: (
+    value: (
+      compact: 45ch,
+      ideal: 66ch,
+      longform: 75ch
+    ),
+    prefix: (
+      measure: 'max-width'
+    ),
+    property: 'max-width'
+  ),
+  padding: (
+    value: $base-scale,
+    prefix: (
+      p: 'padding',
+      pt: 'padding-top',
+      pb: 'padding-bottom',
+      pl: 'padding-left',
+      pr: 'padding-right',
+      px: 'padding-inline',
+      py: 'padding-block'
+    ),
+    property: 'padding'
+  ),
+  margin: (
+    value:
+      map-merge(
+        $base-scale,
+        (
+          auto: auto
+        )
+      ),
+    prefix: (
+      m: 'margin',
+      mt: 'margin-top',
+      mb: 'margin-bottom',
+      ml: 'margin-left',
+      mr: 'margin-right',
+      mx: 'margin-inline',
+      my: 'margin-block'
+    ),
+    property: 'margin'
+  ),
+  gap: (
+    value: map-get($default-scales, 'linear'),
+    prefix: (
+      gap: 'gap'
+    ),
+    property: 'gap'
+  ),
+  border-width: (
+    value: map-get($default-scales, 'linear'),
+    prefix: (
+      border: 'border-width'
+    ),
+    property: 'border-width'
+  ),
+  border-style: (
+    value: (
+      solid: solid,
+      dashed: dashed,
+      dotted: dotted
+    ),
+    prefix: (
+      border: 'border-style'
+    ),
+    property: 'border-style'
+  ),
+  border-radius: (
+    value:
+      map-merge(
+        map-get($default-scales, 'linear'),
+        (
+          full: 999rem
+        )
+      ),
+    prefix: (
+      rounded: 'border-radius'
+    ),
+    property: 'border-radius'
+  ),
+  shadow: (
+    value: (
+      xs: 0 1px 2px 0 var(--shadow-color),
+      sm: (
+        0 1px 3px 0 var(--shadow-color),
+        0 1px 2px -1px var(--shadow-color)
+      ),
+      md: (
+        0 4px 6px -1px var(--shadow-color),
+        0 2px 4px -2px var(--shadow-color)
+      ),
+      lg: (
+        0 10px 15px -3px var(--shadow-color),
+        0 4px 6px -4px var(--shadow-color)
+      ),
+      xl: (
+        0 20px 25px -5px var(--shadow-color),
+        0 8px 10px -6px var(--shadow-color)
+      )
+    ),
+    prefix: (
+      shadow: 'box-shadow'
+    ),
+    property: 'box-shadow'
+  ),
+  transition-timing: (
+    value: (
+      linear: linear,
+      in: cubic-bezier(0.4, 0, 1, 1),
+      out: cubic-bezier(0, 0, 0.2, 1),
+      in-out: cubic-bezier(0.4, 0, 0.2, 1)
+    ),
+    property: 'transition-timing-function'
+  ),
+  breakpoints: (
+    value: (
+      sm: 36em,
+      md: 48em,
+      lg: 62em
+    )
+  )
+) !default;

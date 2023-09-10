@@ -1,0 +1,48 @@
+// Helpers
+@use '../helpers' as *;
+
+/*
+  This space is designed to build your style foundation.
+*/
+
+*,
+.center {
+  @include useProperty('measure', 'longform');
+}
+
+body {
+  color: useColor('neutral', 900);
+  font-family: useValue('font-family', 'regular');
+  font-size: useValue('font-size', 400);
+  line-height: useValue('line-height', 'regular');
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-width: none;
+}
+
+h1,
+h2,
+h3 {
+  @include useProperty('measure', 'compact');
+  font-weight: useValue('font-weight', 'bold');
+  line-height: useValue('line-height', 'heading');
+}
+
+h1 {
+  font-size: useValue('font-size', 800);
+}
+
+h2 {
+  font-size: useValue('font-size', 700);
+}
+
+h3 {
+  font-size: useValue('font-size', 600);
+}

@@ -1,0 +1,18 @@
+// Helpers
+@use '../helpers' as *;
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: useValue('gap', 400);
+}
+
+.sidebar {
+  flex-grow: 1;
+}
+
+.not-sidebar {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: 50%;
+}

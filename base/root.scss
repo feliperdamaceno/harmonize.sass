@@ -1,0 +1,13 @@
+// Tokens
+@use '../tokens.config' as *;
+
+// Helpers
+@use '../helpers' as *;
+
+/*
+  This space to generate custom properties or include your own.
+*/
+
+:root {
+  --shadow-color: #{change-color(useColor('neutral', 900), $alpha: 0.25)};
+}

@@ -1,0 +1,58 @@
+// Helpers
+@use '../functions' as *;
+
+// Tokens
+@use '../../tokens.config' as *;
+
+/*
+  This group of generators that have the purpose to help generate utilities and 
+  custom properties based on the global tokens.
+*/
+
+// Private mixin to helper generate utilities and custom properties:
+@mixin _generator($type, $values, $prefix, $property: null) {
+  @each $key, $value in $values {
+    @if ($type == 'class') {
+      .#{$prefix}-#{$key} {
+        #{$property}: $value;
+      }
+    }
+    @if ($type == 'custom-property') {
+      --#{$prefix}-#{$key}: #{$value};
+    }
+  }
+}
+
+@mixin generateUtilities($token) {
+  $property: getTokenProperty($token);
+  $values: getTokenValues($token);
+  $prefixes: getTokenPrefixes($token);
+
+  @if ($property and $values and $prefixes) {
+    @each $prefix, $property in $prefixes {
+      @include _generator('class', $values, $prefix, $property);
+    }
+  }
+}
+
+@mixin generateCustomProperties($query, $prefix) {
+  $values: getTokenValues($query);
+
+  @if ($values) {
+    @each $key, $value in $values {
+      --#{$prefix}-#{$key}: #{$value};
+    }
+  }
+}
+
+@mixin generateColorUtilities($prefix, $property) {
+  @each $color, $shades in $base-colors {
+    @include _generator('class', $shades, #{'#{$prefix}-#{$color}'}, $property);
+  }
+}
+
+@mixin generateColorCustomProperties($prefix) {
+  @each $color, $shades in $base-colors {
+    @include _generator('custom-property', $shades, #{'#{$prefix}-#{$color}'});
+  }
+}

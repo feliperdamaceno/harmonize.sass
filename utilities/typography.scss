@@ -1,0 +1,23 @@
+// Helpers
+@use '../helpers' as *;
+
+// Generate font family utilities:
+@include generateUtilities('font-family');
+
+// Generate font size utilities:
+@include generateUtilities('font-size');
+
+// Generate font weight utilities:
+@include generateUtilities('font-weight');
+
+// Generate letter spacing utilities:
+@include generateUtilities('letter-spacing');
+
+// Generate text align utilities:
+@include generateUtilities('text-align');
+
+// Generate text transform utilities:
+@include generateUtilities('text-transform');
+
+// Generate measure utilities:
+@include generateUtilities('measure');

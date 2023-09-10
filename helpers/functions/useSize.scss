@@ -1,0 +1,13 @@
+// Tokens
+@use '../../tokens.config' as *;
+
+@function useSize($query) {
+  $size: map-get($base-scale, $query);
+
+  @if not $size {
+    @warn #{'The size #{$query} has not been found on $base-scale!'};
+    @return null;
+  }
+
+  @return $size;
+}

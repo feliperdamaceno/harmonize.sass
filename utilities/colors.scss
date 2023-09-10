@@ -1,0 +1,11 @@
+// Helpers
+@use '../helpers' as *;
+
+// Generate text color utilities:
+@include generateColorUtilities('text', 'color');
+
+// Generate background color utilities:
+@include generateColorUtilities('bg', 'background-color');
+
+// Generate border color utilities:
+@include generateColorUtilities('border', 'border-color');
