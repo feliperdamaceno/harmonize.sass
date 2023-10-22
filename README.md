@@ -1,12 +1,11 @@
-# SASS Starter Library
+# Harmonize.Sass
 
-The Sass Token Library is a personal project aimed at providing a centralized and efficient way to manage design tokens, generate utility classes, and work with media queries in your Sass-based projects. This library streamlines your design system and improves the maintainability of the styles.
+The Harmonize.Sass is a personal project aimed at providing a centralized and efficient way to manage design tokens, generate utility classes, and work with media queries in your Sass-based projects. This library streamlines your design system and improves the maintainability of the styles.
 
 Inspired by [Andy Bell's Gorko](https://github.com/Andy-set-studio/gorko).
 
 ## Table of contents
 
-- [SASS Starter Library](#sass-starter-library)
 - [Installation](#installation)
 - [Token Configuration](#token-configuration)
 - [Functions and Mixins](#functions-and-mixins)
@@ -16,13 +15,17 @@ Inspired by [Andy Bell's Gorko](https://github.com/Andy-set-studio/gorko).
 
 ## Installation
 
-Clone this repository to your project directory:
+1. Install Harmonize.sass via npm:
 
 ```bash
-git clone https://github.com/feliperdamaceno/sass-starter-library.git
+npm install harmonize.sass
 ```
 
-Paste the downloaded files on your SASS folder and import the `main.scss` file.
+2. Import it into your main Sass file:
+
+```scss
+@use 'harmonize.sass';
+```
 
 ## Token Configuration
 
@@ -372,7 +375,7 @@ breakpoints: (
 In order to use the helper functions and mixins, just use the `@use` rule to import helpers in your SCSS file.
 
 ```scss
-@use './helpers' as *;
+@use 'harmonize.sass/helpers' as *;
 ```
 
 Then use one of the following options:
@@ -459,7 +462,7 @@ Generators are mixins that loop through the given property from the tokens confi
 In order to use the generator, just use the `@use` rule to import helpers into your SCSS file.
 
 ```scss
-@use './helpers' as *;
+@use 'harmonize.sass/helpers' as *;
 ```
 
 ### Prefix
