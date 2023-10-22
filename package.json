@@ -13,9 +13,18 @@
     "main.scss",
     "tokens.config.scss"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feliperdamaceno/harmonize.sass.git"
+  },
   "keywords": [
-    "sass"
+    "sass",
+    "scss"
   ],
   "author": "feliperdamaceno",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/feliperdamaceno/harmonize.sass/issues"
+  },
+  "homepage": "https://github.com/feliperdamaceno/harmonize.sass#readme"
 }
