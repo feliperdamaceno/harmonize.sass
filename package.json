@@ -1,0 +1,21 @@
+{
+  "name": "harmonize.sass",
+  "version": "1.0.0",
+  "description": "A simple SASS library aimed at providing a centralized and efficient way to manage design tokens, generate utility classes, and work with media queries.",
+  "main": "main.scss",
+  "style": "main.scss",
+  "files": [
+    "base/",
+    "blocks/",
+    "compositions/",
+    "helpers/",
+    "utilities/",
+    "main.scss",
+    "tokens.config.scss"
+  ],
+  "keywords": [
+    "sass"
+  ],
+  "author": "feliperdamaceno",
+  "license": "MIT"
+}
